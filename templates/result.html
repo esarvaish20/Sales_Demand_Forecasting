@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Prediction Result</title>
+
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Sales Forecast Result</h1>
+
+<div class="card">
+
+<h2>Model Performance</h2>
+
+<p><strong>MAE :</strong> {{ mae }}</p>
+
+<p><strong>RMSE :</strong> {{ rmse }}</p>
+
+<p><strong>R² Score :</strong> {{ r2 }}</p>
+
+</div>
+
+<h2>Prediction Table</h2>
+
+{% for table in tables %}
+
+{{ table|safe }}
+
+{% endfor %}
+
+<br>
+
+<a href="/download">
+
+<button>
+
+Download Prediction CSV
+
+</button>
+
+</a>
+
+<br><br>
+
+<a href="/">
+
+<button>
+
+Upload Another Dataset
+
+</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>
